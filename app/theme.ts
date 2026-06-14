@@ -20,3 +20,19 @@ export const money = (n: number) =>
 
 export const moneyShort = (n: number) =>
   "$" + n.toLocaleString("es-MX", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+export const LIGHT = {
+  void: '#ffffff',
+  bg: '#f7f5f0',
+  surface: '#ffffff',
+  card: '#ffffff',
+  border: '#e5e0d8',
+  violet: '#7c3aed',
+  cyan: '#0891b2',
+  text: '#1a1208',
+  sub: '#5a5040',
+  muted: '#9e9080',
+  green: '#059669',
+  red: '#dc2626',
+  amber: '#d97706',
+};

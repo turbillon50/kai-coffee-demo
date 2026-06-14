@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import { C, money, moneyShort } from "./theme";
+import { C, LIGHT, money, moneyShort } from "./theme";
 import { logoDataUri } from "./logo";
 import {
   MENU, SPACES, RESERVATIONS, CUSTOMERS, POINTS_HISTORY, NIVELES, ME,
@@ -838,7 +838,6 @@ function CartModal({ open, onClose, cart, setCart, onPay }: {
       </div>
 
       <PrimaryButton full onClick={onPay}>Pagar {money(total)}</PrimaryButton>
-      <div style={{ textAlign: "center", fontSize: 12, color: C.muted, marginTop: 12 }}>Pago simulado · demo sin cargos reales</div>
     </Modal>
   );
 }
@@ -953,11 +952,11 @@ function SuccessModal({ open, title, desc, onClose }: { open: boolean; title: st
 
 /* ============================ DEMO TOGGLE ============================ */
 
-function DemoToggle({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void }) {
+function DemoToggle({ mode, setMode, isDark, setIsDark }: { mode: Mode; setMode: (m: Mode) => void; isDark: boolean; setIsDark: (v: boolean) => void }) {
   const opts: { key: Mode; label: string }[] = [
     { key: "publico", label: "Público" },
-    { key: "cliente", label: "Cliente" },
-    { key: "admin", label: "Admin" },
+    { key: "cliente", label: "Mi cuenta" },
+    
   ];
   return (
     <div style={{
@@ -965,7 +964,7 @@ function DemoToggle({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void 
     }}>
       <div style={{
         display: "flex", gap: 3, padding: 4,
-        background: "rgba(22,18,42,0.92)", backdropFilter: "blur(12px)",
+        background: isDark ? "rgba(22,18,42,0.92)" : "rgba(247,245,240,0.95)", backdropFilter: "blur(12px)",
         border: `1px solid ${C.violet}55`, borderRadius: 999,
         boxShadow: `0 10px 30px rgba(3,2,10,0.6), 0 0 0 1px ${C.violet}22`,
       }}>
@@ -988,6 +987,7 @@ function DemoToggle({ mode, setMode }: { mode: Mode; setMode: (m: Mode) => void 
 /* ============================ APP ROOT ============================ */
 
 export default function App() {
+  const [isDark, setIsDark] = useState(true);
   const [mode, setMode] = useState<Mode>("publico");
   const [pubTab, setPubTab] = useState("home");
   const [cliTab, setCliTab] = useState("inicio");
@@ -1044,7 +1044,7 @@ export default function App() {
     screen =
       admTab === "reservas" ? <AdminReservas rows={reservations} onAction={reservationAction} notify={notify} />
       : admTab === "clientes" ? <AdminClientes />
-      : <AdminDashboard go={(k) => { if (k === "reservas" || k === "clientes") setAdmTab(k); else notify("Módulo demo"); }} />;
+      : <AdminDashboard go={(k) => { if (k === "reservas" || k === "clientes") setAdmTab(k); else notify("Próximamente"); }} />;
     nav = <BottomNav active={admTab} onChange={setAdmTab} items={[
       { key: "dash", label: "Panel", icon: IconChart },
       { key: "reservas", label: "Reservas", icon: IconCalendar },
@@ -1072,7 +1072,7 @@ export default function App() {
 
   return (
     <div style={{
-      minHeight: "100vh", background: C.bg,
+      minHeight: "100vh", background: isDark ? C.bg : LIGHT.bg,
       maxWidth: 480, margin: "0 auto",
       borderLeft: `1px solid ${C.border}`, borderRight: `1px solid ${C.border}`,
       display: "flex", flexDirection: "column", position: "relative",
@@ -1081,7 +1081,7 @@ export default function App() {
       <div style={{ flex: 1 }}>{screen}</div>
       {nav}
 
-      <DemoToggle mode={mode} setMode={switchMode} />
+      <DemoToggle mode={mode} setMode={switchMode} isDark={isDark} setIsDark={setIsDark} />
       <Toast msg={toast} />
 
       <CartModal
