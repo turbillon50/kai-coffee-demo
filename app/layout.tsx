@@ -1,5 +1,21 @@
 import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
 import "./globals.css";
+
+// Tipografía igual a Hakapoke: Plus Jakarta Sans para cuerpo.
+const sans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
+
+// Serif cálido para titulares — vibe artesanal de cafetería.
+const serif = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "900"],
+});
 
 export const metadata: Metadata = {
   title: "KAI COFFEE — Café de especialidad",
@@ -22,7 +38,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0814",
+  themeColor: "#1a0f08",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -37,7 +53,7 @@ const swReg = `if('serviceWorker' in navigator){window.addEventListener('load',f
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es" data-theme="dark">
+    <html lang="es" data-theme="dark" className={`${sans.variable} ${serif.variable}`}>
       <head>
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />

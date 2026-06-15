@@ -1,18 +1,18 @@
-// Paleta V.Momentum — NO NEGOCIABLE
+// Paleta KAI COFFEE — warm artisan (DARK por defecto)
 export const C = {
-  void: "#03020a",
-  bg: "#0a0814",
-  surface: "#100d1e",
-  card: "#16122a",
-  border: "#1e1a35",
-  violet: "#7c3aed",
-  cyan: "#22d3ee",
-  text: "#f0f4ff",
-  sub: "#a8b4d0",
-  muted: "#4a4f6a",
-  green: "#10b981",
-  red: "#ef4444",
-  amber: "#f59e0b",
+  void: "#0f0805",
+  bg: "#1a0f08",
+  surface: "#241509",
+  card: "#2a1a10",
+  border: "#3d2a1a",
+  violet: "#d98a4f", // primary accent — caramel
+  cyan: "#e0a96d",   // secondary accent — honey gold
+  text: "#f5f0ea",
+  sub: "#c9b8a6",
+  muted: "#8a7560",
+  green: "#7faa5e",
+  red: "#e0654a",
+  amber: "#e0a96d",
 };
 
 export const money = (n: number) =>
@@ -23,16 +23,16 @@ export const moneyShort = (n: number) =>
 
 export const LIGHT = {
   void: '#ffffff',
-  bg: '#f7f5f0',
+  bg: '#faf7f2',
   surface: '#ffffff',
   card: '#ffffff',
-  border: '#e5e0d8',
-  violet: '#7c3aed',
-  cyan: '#0891b2',
-  text: '#1a1208',
-  sub: '#5a5040',
-  muted: '#9e9080',
-  green: '#059669',
-  red: '#dc2626',
-  amber: '#d97706',
+  border: '#e8e0d5',
+  violet: '#a3551f', // primary accent — roast brown
+  cyan: '#c4622d',   // secondary accent — terracotta
+  text: '#1a0f08',
+  sub: '#7a6654',
+  muted: '#a89080',
+  green: '#4e7a3a',
+  red: '#c0392b',
+  amber: '#b4762a',
 };

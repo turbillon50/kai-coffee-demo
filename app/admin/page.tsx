@@ -198,7 +198,7 @@ function ClientesTab({ clientes, t }: { clientes: Cliente[]; t: (k: string) => s
     <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       {clientes.map((c) => (
         <div key={c.id} style={{ background: "var(--k-card)", border: "1px solid var(--k-border)", borderRadius: 16, padding: 16, display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ width: 46, height: 46, borderRadius: 13, background: "linear-gradient(135deg, var(--k-violet), #4c1d95)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 900, fontSize: 18 }}>{c.nombre[0]?.toUpperCase()}</div>
+          <div style={{ width: 46, height: 46, borderRadius: 13, background: "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 900, fontSize: 18 }}>{c.nombre[0]?.toUpperCase()}</div>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontWeight: 800, fontSize: 15 }}>{c.nombre}</div>
             <div style={{ fontSize: 12.5, color: "var(--k-sub)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{c.email}</div>

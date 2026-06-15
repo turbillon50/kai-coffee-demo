@@ -66,8 +66,8 @@ export default function Landing() {
             <ThemeLangToggle theme={ui.theme} lang={ui.lang} toggleTheme={ui.toggleTheme} toggleLang={ui.toggleLang} />
             <button onClick={goLogin} style={{
               height: 38, padding: "0 16px", borderRadius: 999, fontSize: 13.5, fontWeight: 700,
-              color: "#fff", border: "none", background: "linear-gradient(135deg, var(--k-violet), #5b21b6)",
-              boxShadow: "0 6px 18px rgba(124,58,237,0.35)",
+              color: "#fff", border: "none", background: "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))",
+              boxShadow: "0 6px 18px var(--k-glow)",
             }}>{t("login")}</button>
           </div>
         </div>
@@ -82,10 +82,12 @@ export default function Landing() {
         </div>
         <div style={{ position: "relative", maxWidth: maxW, margin: "0 auto", padding: "76px 18px 92px", textAlign: "center" }}>
           <motion.div initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
+            <img src={logoDataUri} alt="KAI COFFEE" width={84} height={84}
+              style={{ width: 84, height: 84, borderRadius: 22, objectFit: "cover", margin: "0 auto 20px", display: "block", boxShadow: "0 12px 36px rgba(0,0,0,0.5)", border: "2px solid rgba(255,255,255,0.12)" }} />
             <div style={{ display: "inline-block", marginBottom: 18 }}>
               <Pill color="var(--k-cyan)">{t("heroEyebrow")}</Pill>
             </div>
-            <h1 style={{ fontSize: "clamp(34px, 7vw, 62px)", lineHeight: 1.04, fontWeight: 900, letterSpacing: -1.5, margin: "0 auto 18px", maxWidth: 760, textShadow: "0 2px 30px rgba(0,0,0,0.45)" }}>
+            <h1 className="font-serif" style={{ fontSize: "clamp(36px, 7.4vw, 66px)", lineHeight: 1.02, fontWeight: 600, letterSpacing: -1.2, margin: "0 auto 18px", maxWidth: 780, textShadow: "0 2px 30px rgba(0,0,0,0.5)" }}>
               {t("heroTitle")}
             </h1>
             <p style={{ fontSize: "clamp(15px, 2.4vw, 19px)", color: "var(--k-text)", opacity: 0.92, maxWidth: 560, margin: "0 auto 28px", textShadow: "0 1px 12px rgba(0,0,0,0.4)" }}>
@@ -110,7 +112,7 @@ export default function Landing() {
       {/* ===== Menu ===== */}
       <section id="menu" style={{ maxWidth: maxW, margin: "0 auto", padding: "56px 16px 30px" }}>
         <motion.div {...fadeUp} style={{ textAlign: "center", marginBottom: 26 }}>
-          <h2 style={{ fontSize: "clamp(26px,4vw,38px)", fontWeight: 900, letterSpacing: -0.8, margin: "0 0 8px" }}>{t("menuTitle")}</h2>
+          <h2 className="font-serif" style={{ fontSize: "clamp(28px,4.2vw,40px)", fontWeight: 600, letterSpacing: -0.6, margin: "0 0 8px" }}>{t("menuTitle")}</h2>
           <p style={{ color: "var(--k-sub)", fontSize: 15, margin: 0 }}>{t("menuSub")}</p>
         </motion.div>
 
@@ -122,9 +124,9 @@ export default function Landing() {
                 display: "inline-flex", alignItems: "center", gap: 7, padding: "10px 18px", borderRadius: 999,
                 fontSize: 14, fontWeight: 700,
                 color: on ? "#fff" : "var(--k-text)",
-                background: on ? "linear-gradient(135deg, var(--k-violet), #5b21b6)" : "var(--k-surface)",
+                background: on ? "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))" : "var(--k-surface)",
                 border: `1px solid ${on ? "transparent" : "var(--k-border)"}`,
-                boxShadow: on ? "0 6px 18px rgba(124,58,237,0.32)" : "none",
+                boxShadow: on ? "0 6px 18px var(--k-glow)" : "none",
               }}>
                 <Ic size={17} color={on ? "#fff" : "var(--k-violet)"} /> {label}
               </button>
@@ -157,7 +159,7 @@ export default function Landing() {
       {/* ===== Spaces ===== */}
       <section id="spaces" style={{ maxWidth: maxW, margin: "0 auto", padding: "44px 16px 30px" }}>
         <motion.div {...fadeUp} style={{ textAlign: "center", marginBottom: 26 }}>
-          <h2 style={{ fontSize: "clamp(26px,4vw,38px)", fontWeight: 900, letterSpacing: -0.8, margin: "0 0 8px" }}>{t("spacesTitle")}</h2>
+          <h2 className="font-serif" style={{ fontSize: "clamp(28px,4.2vw,40px)", fontWeight: 600, letterSpacing: -0.6, margin: "0 0 8px" }}>{t("spacesTitle")}</h2>
           <p style={{ color: "var(--k-sub)", fontSize: 15, margin: 0 }}>{t("spacesSub")}</p>
         </motion.div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(290px, 1fr))", gap: 14 }}>
@@ -165,8 +167,8 @@ export default function Landing() {
             <motion.div key={s.id} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.04 }}
               style={{ background: "var(--k-card)", border: "1px solid var(--k-border)", borderRadius: 18, overflow: "hidden" }}>
               <div style={{ height: 110, background: s.type === "patio"
-                ? "linear-gradient(135deg, #0e3b2e, #134e3a)"
-                : "linear-gradient(135deg, #2a1d52, #3b2a6e)", position: "relative", display: "flex", alignItems: "flex-end", padding: 14 }}>
+                ? "linear-gradient(135deg, #3a5a32, #4e6b3a)"
+                : "linear-gradient(135deg, #5a3418, #3d1f0a)", position: "relative", display: "flex", alignItems: "flex-end", padding: 14 }}>
                 <div style={{ position: "absolute", top: 12, right: 12 }}>
                   <Pill color="var(--k-green)">{t("available")}</Pill>
                 </div>
@@ -182,7 +184,7 @@ export default function Landing() {
                   <div style={{ fontSize: 19, fontWeight: 900, color: "var(--k-violet)" }}>{money(s.price)}<span style={{ fontSize: 12, color: "var(--k-sub)", fontWeight: 600 }}>{t("perHour")}</span></div>
                   <button onClick={goAuth} style={{
                     padding: "9px 16px", borderRadius: 10, fontSize: 13.5, fontWeight: 700, color: "#fff", border: "none",
-                    background: "linear-gradient(135deg, var(--k-violet), #5b21b6)", boxShadow: "0 6px 16px rgba(124,58,237,0.3)",
+                    background: "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))", boxShadow: "0 6px 16px var(--k-glow)",
                   }}>{t("reserve")}</button>
                 </div>
               </div>
@@ -194,7 +196,7 @@ export default function Landing() {
       {/* ===== Why Kai ===== */}
       <section style={{ maxWidth: maxW, margin: "0 auto", padding: "44px 16px 30px" }}>
         <motion.div {...fadeUp} style={{ textAlign: "center", marginBottom: 28 }}>
-          <h2 style={{ fontSize: "clamp(24px,3.6vw,34px)", fontWeight: 900, letterSpacing: -0.6, margin: "0 0 8px" }}>{t("why")}</h2>
+          <h2 className="font-serif" style={{ fontSize: "clamp(26px,3.8vw,36px)", fontWeight: 600, letterSpacing: -0.5, margin: "0 0 8px" }}>{t("why")}</h2>
           <p style={{ color: "var(--k-sub)", fontSize: 15, margin: 0 }}>{t("whySub")}</p>
         </motion.div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 14 }}>
@@ -215,16 +217,16 @@ export default function Landing() {
       <section style={{ maxWidth: maxW, margin: "0 auto", padding: "30px 16px 60px" }}>
         <motion.div {...fadeUp} style={{
           borderRadius: 24, padding: "40px 24px", textAlign: "center", position: "relative", overflow: "hidden",
-          background: "linear-gradient(135deg, #2a1d52, #160f2e)", border: "1px solid var(--k-border)",
+          background: "linear-gradient(135deg, #3d2416, #160c06)", border: "1px solid var(--k-border)",
         }}>
-          <div style={{ position: "absolute", top: -60, right: -40, width: 220, height: 220, borderRadius: "50%", background: "radial-gradient(circle, rgba(34,211,238,0.25), transparent 70%)" }} />
+          <div style={{ position: "absolute", top: -60, right: -40, width: 220, height: 220, borderRadius: "50%", background: "radial-gradient(circle, rgba(224,169,109,0.28), transparent 70%)" }} />
           <div style={{ position: "relative" }}>
             <div style={{ display: "inline-flex", alignItems: "center", gap: 7, marginBottom: 12 }}>
               <IconStar size={18} color="var(--k-amber)" fill="var(--k-amber)" />
               <span style={{ fontSize: 12, fontWeight: 800, letterSpacing: 1.5, color: "var(--k-amber)" }}>KAI REWARDS</span>
             </div>
-            <h2 style={{ fontSize: "clamp(22px,3.4vw,32px)", fontWeight: 900, letterSpacing: -0.6, color: "#fff", margin: "0 auto 10px", maxWidth: 520 }}>{t("ctaBannerT")}</h2>
-            <p style={{ color: "#cbd5e1", fontSize: 15, margin: "0 auto 22px", maxWidth: 460 }}>{t("ctaBannerD")}</p>
+            <h2 className="font-serif" style={{ fontSize: "clamp(24px,3.6vw,34px)", fontWeight: 600, letterSpacing: -0.5, color: "#fff", margin: "0 auto 10px", maxWidth: 520 }}>{t("ctaBannerT")}</h2>
+            <p style={{ color: "#d8c6b4", fontSize: 15, margin: "0 auto 22px", maxWidth: 460 }}>{t("ctaBannerD")}</p>
             <PrimaryButton onClick={goAuth}>{t("signupCta")}</PrimaryButton>
           </div>
         </motion.div>

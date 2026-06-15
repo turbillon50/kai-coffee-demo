@@ -108,7 +108,7 @@ export const NIVELES = [
   { nivel: "Bronze", min: 0, color: "#a16207", next: "Silver" },
   { nivel: "Silver", min: 500, color: "#94a3b8", next: "Gold" },
   { nivel: "Gold", min: 1500, color: "#f59e0b", next: "Platinum" },
-  { nivel: "Platinum", min: 2800, color: "#22d3ee", next: "—" },
+  { nivel: "Platinum", min: 2800, color: "#e0a96d", next: "—" },
 ] as const;
 
 // Cliente "logueado" en la demo

@@ -151,7 +151,7 @@ function Home({ me, t, pedidos, reservas, go }: { me: Me; t: (k: string) => stri
       <div style={{ fontSize: 26, fontWeight: 900, letterSpacing: -0.6, marginBottom: 18 }}>{me.nombre.split(" ")[0]} 👋</div>
 
       {/* Points card */}
-      <div style={{ borderRadius: 22, padding: 22, background: "linear-gradient(135deg, var(--k-violet), #4c1d95)", color: "#fff", boxShadow: "0 18px 44px rgba(124,58,237,0.35)", marginBottom: 18 }}>
+      <div style={{ borderRadius: 22, padding: 22, background: "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))", color: "#fff", boxShadow: "0 18px 44px var(--k-glow)", marginBottom: 18 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
           <div>
             <div style={{ fontSize: 13, opacity: 0.85 }}>{t("points")}</div>
@@ -229,7 +229,7 @@ function OrderView({ menu, t, onDone }: { menu: MenuItem[]; t: (k: string) => st
       <h1 style={{ fontSize: 24, fontWeight: 900, letterSpacing: -0.6, margin: "0 0 16px" }}>{t("newOrder")}</h1>
       <div style={{ display: "flex", gap: 8, marginBottom: 18 }}>
         {tabs.map(({ k, label }) => (
-          <button key={k} onClick={() => setTab(k)} style={{ flex: 1, padding: "10px 0", borderRadius: 12, fontSize: 14, fontWeight: 700, background: tab === k ? "linear-gradient(135deg, var(--k-violet), #5b21b6)" : "var(--k-surface)", color: tab === k ? "#fff" : "var(--k-sub)", border: tab === k ? "1px solid transparent" : "1px solid var(--k-border)" }}>{label}</button>
+          <button key={k} onClick={() => setTab(k)} style={{ flex: 1, padding: "10px 0", borderRadius: 12, fontSize: 14, fontWeight: 700, background: tab === k ? "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))" : "var(--k-surface)", color: tab === k ? "#fff" : "var(--k-sub)", border: tab === k ? "1px solid transparent" : "1px solid var(--k-border)" }}>{label}</button>
         ))}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
@@ -276,7 +276,7 @@ function OrderView({ menu, t, onDone }: { menu: MenuItem[]; t: (k: string) => st
 }
 
 function stepBtn(filled?: boolean): React.CSSProperties {
-  return { width: 34, height: 34, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", border: filled ? "none" : "1px solid var(--k-border)", background: filled ? "linear-gradient(135deg, var(--k-violet), #5b21b6)" : "var(--k-surface)" };
+  return { width: 34, height: 34, borderRadius: 10, display: "flex", alignItems: "center", justifyContent: "center", border: filled ? "none" : "1px solid var(--k-border)", background: filled ? "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))" : "var(--k-surface)" };
 }
 
 /* ===================== RESERVE ===================== */
@@ -423,7 +423,7 @@ function Profile({ me, t, onSaved, onLogout }: { me: Me; t: (k: string) => strin
     <div>
       <h1 style={{ fontSize: 24, fontWeight: 900, letterSpacing: -0.6, margin: "0 0 18px" }}>{t("profile")}</h1>
       <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
-        <div style={{ width: 64, height: 64, borderRadius: 18, background: "linear-gradient(135deg, var(--k-violet), #4c1d95)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 900, fontSize: 26 }}>{me.nombre[0]?.toUpperCase()}</div>
+        <div style={{ width: 64, height: 64, borderRadius: 18, background: "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontWeight: 900, fontSize: 26 }}>{me.nombre[0]?.toUpperCase()}</div>
         <div>
           <div style={{ fontWeight: 900, fontSize: 19 }}>{me.nombre}</div>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 5, marginTop: 4 }}><Pill color="var(--k-amber)">{me.nivel}</Pill><span style={{ fontSize: 13, color: "var(--k-sub)" }}>{me.puntos} {t("pts")}</span></div>

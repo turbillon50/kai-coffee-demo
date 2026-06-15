@@ -1,38 +1,46 @@
 :root {
-  /* Dark (default) */
-  --k-void: #03020a;
-  --k-bg: #0a0814;
-  --k-surface: #100d1e;
-  --k-card: #16122a;
-  --k-border: #1e1a35;
-  --k-violet: #7c3aed;
-  --k-cyan: #22d3ee;
-  --k-text: #f0f4ff;
-  --k-sub: #a8b4d0;
-  --k-muted: #4a4f6a;
-  --k-green: #10b981;
-  --k-red: #ef4444;
-  --k-amber: #f59e0b;
-  --k-shadow: rgba(0,0,0,0.5);
-  --k-overlay: rgba(3,2,10,0.7);
+  /* ===== Dark (default) — warm artisan roast ===== */
+  --k-void: #0f0805;
+  --k-bg: #1a0f08;
+  --k-surface: #241509;
+  --k-card: #2a1a10;
+  --k-border: #3d2a1a;
+  --k-violet: #d98a4f;   /* primary accent — caramel */
+  --k-cyan: #e0a96d;     /* secondary accent — honey gold */
+  --k-text: #f5f0ea;
+  --k-sub: #c9b8a6;
+  --k-muted: #8a7560;
+  --k-green: #7faa5e;
+  --k-red: #e0654a;
+  --k-amber: #e0a96d;
+  --k-shadow: rgba(0,0,0,0.45);
+  --k-overlay: rgba(15,8,5,0.7);
+  /* button gradient + glow (derived) */
+  --k-btn-from: #d98a4f;
+  --k-btn-to: #b8501f;
+  --k-glow: rgba(201,106,48,0.40);
 }
 
 [data-theme="light"] {
+  /* ===== Light — warm cream & espresso ===== */
   --k-void: #ffffff;
-  --k-bg: #f7f5f0;
+  --k-bg: #faf7f2;
   --k-surface: #ffffff;
   --k-card: #ffffff;
-  --k-border: #e5e0d8;
-  --k-violet: #7c3aed;
-  --k-cyan: #0891b2;
-  --k-text: #1a1208;
-  --k-sub: #5a5040;
-  --k-muted: #9e9080;
-  --k-green: #059669;
-  --k-red: #dc2626;
-  --k-amber: #d97706;
-  --k-shadow: rgba(120,100,60,0.15);
-  --k-overlay: rgba(40,30,15,0.5);
+  --k-border: #e8e0d5;
+  --k-violet: #a3551f;   /* primary accent — roast brown */
+  --k-cyan: #c4622d;     /* secondary accent — terracotta */
+  --k-text: #1a0f08;
+  --k-sub: #7a6654;
+  --k-muted: #a89080;
+  --k-green: #4e7a3a;
+  --k-red: #c0392b;
+  --k-amber: #b4762a;
+  --k-shadow: rgba(90,60,30,0.14);
+  --k-overlay: rgba(40,28,15,0.5);
+  --k-btn-from: #6f4525;
+  --k-btn-to: #3d1f0a;
+  --k-glow: rgba(61,31,10,0.28);
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -41,11 +49,13 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--k-bg);
   color: var(--k-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   transition: background 0.3s ease, color 0.3s ease;
   min-height: 100vh;
 }
+/* Serif display para titulares — vibe artesanal */
+.font-serif { font-family: var(--font-serif), Georgia, "Times New Roman", serif; }
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--k-border); border-radius: 99px; }
@@ -58,3 +68,7 @@ input::placeholder, textarea::placeholder { color: var(--k-muted); }
 
 @keyframes kaiSpin { to { transform: rotate(360deg); } }
 .kai-spin { animation: kaiSpin 0.8s linear infinite; }
+
+/* Scroll horizontal sin scrollbar — sección de espacios */
+.kai-hscroll { scrollbar-width: none; -ms-overflow-style: none; }
+.kai-hscroll::-webkit-scrollbar { display: none; }

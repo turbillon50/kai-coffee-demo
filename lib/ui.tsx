@@ -102,11 +102,11 @@ export function PrimaryButton({
   return (
     <button type={type} onClick={onClick} disabled={disabled} style={{
       width: full ? "100%" : "auto",
-      background: disabled ? "var(--k-muted)" : "linear-gradient(135deg, var(--k-violet), #5b21b6)",
+      background: disabled ? "var(--k-muted)" : "linear-gradient(135deg, var(--k-btn-from), var(--k-btn-to))",
       color: "#fff", border: "none", borderRadius: 12,
       padding: "14px 20px", fontSize: 15, fontWeight: 700,
       opacity: disabled ? 0.6 : 1,
-      boxShadow: disabled ? "none" : "0 8px 24px rgba(124,58,237,0.35)",
+      boxShadow: disabled ? "none" : "0 8px 24px var(--k-glow)",
       display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
     }}>{children}</button>
   );
